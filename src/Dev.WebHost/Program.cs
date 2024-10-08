@@ -1,28 +1,10 @@
-using Dev.WebHost.Components;
+using Dev.WebHost.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+// Configure web application
+builder.ConfigureWebApplication();
 
 var app = builder.Build();
+await app.ConfigureRequestPipelineAsync();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-app.UseAntiforgery();
-
-app.MapRazorComponents<App>()
-    .AddAdditionalAssemblies(typeof(Dev.Plugin.Blog.DependencyInjection).Assembly)
-    .AddInteractiveServerRenderMode();
-
-app.Run();

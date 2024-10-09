@@ -19,4 +19,8 @@
     <ProjectReference Include="..\..\common\Dev\Dev.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Components/Shared/" />
+  </ItemGroup>
+
 </Project>

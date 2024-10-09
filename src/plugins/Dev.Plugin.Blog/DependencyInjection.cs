@@ -10,10 +10,7 @@ namespace Dev.Plugin.Blog;
 
 public static class DependencyInjection
 {
-    public static void UseBlog(this IApplicationBuilder app)
-    {
 
-    }
     public static void AddBlog(this IServiceCollection services, WebApplicationBuilder builder)
     {
 
@@ -39,5 +36,8 @@ public static class DependencyInjection
 
         //services.AddValidatorsFromAssemblyContaining<CreateCategoryValidator>();        
     }
+    public static void UseBlog(this IApplicationBuilder app)
+    {
 
+    }
 }

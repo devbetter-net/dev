@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dev.WebHost", "Dev.WebHost\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plugins", "plugins", "{41A84984-7840-487D-8166-986707E6F5A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev.Plugin.Blog", "plugins\Dev.Plugin.Blog\Dev.Plugin.Blog.csproj", "{9F84327B-3BAB-4732-9AA4-FE9509DE4B9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dev.Plugin.Blog", "plugins\Dev.Plugin.Blog\Dev.Plugin.Blog.csproj", "{9F84327B-3BAB-4732-9AA4-FE9509DE4B9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dev", "common\Dev\Dev.csproj", "{65B05591-4AEF-4F87-85C2-5F215B8D6A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dev", "common\Dev\Dev.csproj", "{65B05591-4AEF-4F87-85C2-5F215B8D6A13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{35B2A4A1-1B4A-401D-9D13-8255A205C536}"
 EndProject

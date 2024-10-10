@@ -1,4 +1,5 @@
-﻿using Dev.WebHost.Components;
+﻿using Dev.Plugin.Blog.Application;
+using Dev.WebHost.Components;
 
 namespace Dev.WebHost.Extensions;
 
@@ -20,7 +21,7 @@ internal static class WebApplicationExtensions
         app.UseAntiforgery();
 
         app.MapRazorComponents<App>()
-            .AddAdditionalAssemblies(typeof(Dev.Plugin.Blog.DependencyInjection).Assembly)
+            .AddAdditionalAssemblies(typeof(IBlogDbContext).Assembly)
             .AddInteractiveServerRenderMode();
 
         await app.RunAsync();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dev.Plugin.Blog.Application;
 
-internal interface IBlogDbContext
+public interface IBlogDbContext
 {
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     public string GenerateCreateScript();

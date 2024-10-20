@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\plugins\Dev.Plugin.Blog\Dev.Plugin.Blog.csproj" />
+    <ProjectReference Include="..\plugins\Dev.Plugin.News\Dev.Plugin.News.csproj" />
   </ItemGroup>
 
 

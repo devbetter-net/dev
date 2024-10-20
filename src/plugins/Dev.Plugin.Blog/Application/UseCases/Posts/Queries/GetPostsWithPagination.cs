@@ -4,12 +4,12 @@ using MediatR;
 
 namespace Dev.Plugin.Blog.Application.UseCases.Posts.Queries;
 
-internal class GetPostsWithPaginationQuery : IRequest<PaginatedList<PostDto>>
+internal class GetPostsWithPaginationQuery : IRequest<PaginatedList<PostListItemDto>>
 {
     public int PageNumber { get; set; }
     public int PageSize { get; set; }
 }
-internal class GetPostsWithPaginationQueryHandler : IRequestHandler<GetPostsWithPaginationQuery, PaginatedList<PostDto>>
+internal class GetPostsWithPaginationQueryHandler : IRequestHandler<GetPostsWithPaginationQuery, PaginatedList<PostListItemDto>>
 {
     private readonly IBlogDbContext _context;
 
@@ -18,14 +18,14 @@ internal class GetPostsWithPaginationQueryHandler : IRequestHandler<GetPostsWith
         _context = context;
     }
 
-    public async Task<PaginatedList<PostDto>> Handle(GetPostsWithPaginationQuery request, CancellationToken cancellationToken)
+    public async Task<PaginatedList<PostListItemDto>> Handle(GetPostsWithPaginationQuery request, CancellationToken cancellationToken)
     {
         var posts = await _context.Posts
             .Where(p => p.IsPublished)
             .OrderByDescending(p => p.CreatedAt)
             .Skip((request.PageNumber - 1) * request.PageSize)
             .Take(request.PageSize)
-            .Select(p => new PostDto
+            .Select(p => new PostListItemDto
             {
                 Id = p.Id,
                 Title = p.Title

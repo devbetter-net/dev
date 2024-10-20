@@ -19,4 +19,9 @@
     <ProjectReference Include="..\..\common\Dev\Dev.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application/UseCases/" />
+    <Folder Include="Application/UseCases/Categories/" />
+  </ItemGroup>
+
 </Project>

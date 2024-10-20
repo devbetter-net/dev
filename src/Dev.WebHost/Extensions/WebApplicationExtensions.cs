@@ -1,4 +1,4 @@
-﻿using Dev.Plugin.Blog.Application;
+﻿using Dev.Plugin.Blog;
 using Dev.WebHost.Components;
 
 namespace Dev.WebHost.Extensions;
@@ -18,11 +18,18 @@ internal static class WebApplicationExtensions
         app.UseHttpsRedirection();
 
         app.UseStaticFiles();
+        app.MapControllers();
         app.UseAntiforgery();
 
         app.MapRazorComponents<App>()
-            .AddAdditionalAssemblies(typeof(IBlogDbContext).Assembly)
+            .AddAdditionalAssemblies(
+                typeof(Plugin.Blog.Application.IBlogDbContext).Assembly,
+                typeof(Plugin.News.Application.INewsDbContext).Assembly)
             .AddInteractiveServerRenderMode();
+
+        app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
+        app.UseBlog();
 
         await app.RunAsync();
     }

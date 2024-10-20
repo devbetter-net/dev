@@ -1,4 +1,6 @@
-﻿namespace Dev.WebHost.Extensions;
+﻿using Dev.Plugin.Blog;
+
+namespace Dev.WebHost.Extensions;
 
 internal static class WebApplicationBuilderExtensions
 {
@@ -7,5 +9,9 @@ internal static class WebApplicationBuilderExtensions
         // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
+        
+        builder.Services.AddControllersWithViews(); 
+        
+        builder.Services.AddBlog(builder);
     }
 }

@@ -13,5 +13,6 @@ internal static class WebApplicationBuilderExtensions
         builder.Services.AddControllersWithViews(); 
         
         builder.Services.AddBlog(builder);
+        builder.Services.AddHttpClient();
     }
 }

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Dev.Plugin.Blog.Application.UseCases.Categories.Commands;
 
-internal class CreateCategoryCommand : IRequest<Guid>
+public class CreateCategoryCommand : IRequest<Guid>
 {
     public required string Name { get; set; }
     public string? Description { get; set; }

@@ -13,6 +13,14 @@ public partial class CategoryCreate : ComponentBase
     private CreateCategoryCommand Category { get; set; } = new();
     private async Task HandleValidSubmit()
     {
-        await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/blog/category/create", Category);
+
+        var response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/blog/category/create", Category);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            var debug = $"API error: {response.StatusCode} - {errorMessage}";
+            // You can log this message or show it to the user
+        }
     }
 }

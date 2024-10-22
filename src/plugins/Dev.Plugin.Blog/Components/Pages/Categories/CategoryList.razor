@@ -1,5 +1,31 @@
-﻿<h3>CategoryList</h3>
+﻿@page "/blog/categories"
+<h3>CategoryList</h3>
 
-@code {
-
+@if (Categories == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (Categories.Count() == 0)
+{
+    <p><em>No categories found.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }

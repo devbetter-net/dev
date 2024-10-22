@@ -9,7 +9,7 @@ public class UpdateCategoryCommand : IRequest<Guid>
     public Guid Id { get; set; }
     public required string Name { get; set; }
     public string? Description { get; set; }
-    public bool IsAction { get; set; }
+    public bool IsPublished { get; set; }
 }
 
 internal class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, Guid>
@@ -32,7 +32,7 @@ internal class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryComm
 
         category.Name = request.Name;
         category.Description = request.Description;
-        category.IsAction = request.IsAction;
+        category.IsPublished = request.IsPublished;
 
         await _context.SaveChangesAsync(cancellationToken);
         return category.Id;

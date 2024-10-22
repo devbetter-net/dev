@@ -9,7 +9,7 @@ internal class CategoryItemDto
     public Guid Id { get; set; }
     public required string Name { get; set; }
     public string? Description { get; set; }
-    public bool IsAction { get; set; }
+    public bool IsPublished { get; set; }
 }
 
 internal class GetCategoryByIdQuery : IRequest<CategoryItemDto?>
@@ -40,7 +40,7 @@ internal class GetCategoryByIdQueryHandler : IRequestHandler<GetCategoryByIdQuer
                 Id = c.Id,
                 Name = c.Name,
                 Description = c.Description,
-                IsAction = c.IsAction
+                IsPublished = c.IsPublished
             })
             .FirstOrDefaultAsync(cancellationToken);
 

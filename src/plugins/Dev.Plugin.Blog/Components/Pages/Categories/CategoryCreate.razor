@@ -1,5 +1,19 @@
-﻿<h3>CategoryCreate</h3>
+﻿@page "/blog/category/create"
+@rendermode InteractiveServer
+<h3>CategoryCreate</h3>
 
-@code {
+<EditForm Model="Category" FormName="CreateCategory" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-}
+    <div class="control">
+        <label for="name">Name</label>
+        <InputText id="name" class="input" @bind-Value="Category.Name" aria-required="true" />
+    </div>
+
+    <div class="control">
+        <label for="description">Description</label>
+        <InputText id="description" class="input" @bind-Value="Category.Description" aria-required="true" />
+    </div>
+    <button type="submit" class="button is-primary">Save</button>
+</EditForm>

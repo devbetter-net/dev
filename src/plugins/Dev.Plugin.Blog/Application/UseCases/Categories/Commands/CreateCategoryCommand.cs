@@ -5,9 +5,9 @@ namespace Dev.Plugin.Blog.Application.UseCases.Categories.Commands;
 
 public class CreateCategoryCommand : IRequest<Guid>
 {
-    public required string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     public string? Description { get; set; }
-    public bool IsAction { get; set; }
+    public bool IsPublished { get; set; }
 }
 
 internal class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Guid>
@@ -26,7 +26,7 @@ internal class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryComm
         {
             Name = request.Name,
             Description = request.Description,
-            IsAction = request.IsAction
+            IsPublished = request.IsPublished
         };
 
        

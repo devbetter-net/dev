@@ -10,7 +10,7 @@ public class CreateCategoryCommand : IRequest<Guid>
     public string? Description { get; set; }
     public bool IsPublished { get; set; }
 }
-internal class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
+public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {
     public CreateCategoryCommandValidator()
     {

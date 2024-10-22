@@ -1,5 +1,6 @@
 ﻿using Dev.Plugin.Blog;
 using Dev.WebHost.Components;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace Dev.WebHost.Extensions;
 
@@ -14,7 +15,7 @@ internal static class WebApplicationExtensions
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-
+        app.UseStatusCodePages();
         app.UseHttpsRedirection();
 
         app.UseStaticFiles();

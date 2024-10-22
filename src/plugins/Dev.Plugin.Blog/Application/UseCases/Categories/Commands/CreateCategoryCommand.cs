@@ -1,4 +1,5 @@
 using Dev.Plugin.Blog.Application.Domain;
+using FluentValidation;
 using MediatR;
 
 namespace Dev.Plugin.Blog.Application.UseCases.Categories.Commands;
@@ -9,7 +10,14 @@ public class CreateCategoryCommand : IRequest<Guid>
     public string? Description { get; set; }
     public bool IsPublished { get; set; }
 }
-
+internal class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
+{
+    public CreateCategoryCommandValidator()
+    {
+        RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
+        RuleFor(x => x.Description).MaximumLength(500);
+    }
+}
 internal class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Guid>
 {
     private readonly IBlogDbContext _context;

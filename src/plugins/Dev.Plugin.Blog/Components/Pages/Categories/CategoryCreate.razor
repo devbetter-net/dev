@@ -15,5 +15,10 @@
         <label for="description">Description</label>
         <InputText id="description" class="input" @bind-Value="Category.Description" aria-required="true" />
     </div>
+
+    <div class="control">
+        <label for="isPublished">Is Published</label>
+        <InputCheckbox id="isPublished" class="input" @bind-Value="Category.IsPublished" aria-required="true" />
+    </div>
     <button type="submit" class="button is-primary">Save</button>
 </EditForm>

@@ -11,12 +11,6 @@ public partial class CategoryCreate : ComponentBase
     [Inject]
     private NavigationManager NavigationManager { get; set; }
     private CreateCategoryCommand Category { get; set; } = new();
-
-    protected override async Task OnInitializedAsync()
-    {
-
-    }
-
     private async Task HandleValidSubmit()
     {
         await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/blog/category/create", Category);

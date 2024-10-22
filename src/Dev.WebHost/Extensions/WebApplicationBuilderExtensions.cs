@@ -1,4 +1,6 @@
-﻿using Dev.Plugin.Blog;
+﻿using Dev.Common.Behaviors;
+using Dev.Plugin.Blog;
+using MediatR;
 
 namespace Dev.WebHost.Extensions;
 
@@ -12,6 +14,8 @@ internal static class WebApplicationBuilderExtensions
         
         builder.Services.AddControllersWithViews(); 
         
+        builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
         builder.Services.AddBlog(builder);
         builder.Services.AddHttpClient();
     }

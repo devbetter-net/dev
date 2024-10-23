@@ -22,8 +22,9 @@ public class GlobalExceptionHandler : IExceptionHandler
         };
 
         httpContext.Response.StatusCode = excDetails.StatusCode;
+        //TODO: maybe need to return ProblemDetailsContext for some context
         if (exception is ValidationAppException validateAppExcetion){
-            await httpContext.Response.WriteAsJsonAsync(new { validateAppExcetion.Errors });
+            await httpContext.Response.WriteAsJsonAsync(new { validateAppExcetion.Errors }, cancellationToken).ConfigureAwait(false);
             return true;
         }
 

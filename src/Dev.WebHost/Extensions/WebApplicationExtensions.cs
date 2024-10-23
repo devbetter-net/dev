@@ -1,6 +1,5 @@
 ﻿using Dev.Plugin.Blog;
 using Dev.WebHost.Components;
-using Microsoft.AspNetCore.Diagnostics;
 
 namespace Dev.WebHost.Extensions;
 
@@ -11,11 +10,11 @@ internal static class WebApplicationExtensions
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
-            app.UseExceptionHandler("/Error", createScopeForErrors: true);
+            //app.UseExceptionHandler("/Error", createScopeForErrors: true);
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-        //app.UseStatusCodePages();
+        app.UseExceptionHandler();
         app.UseHttpsRedirection();
 
         app.UseStaticFiles();

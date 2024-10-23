@@ -17,7 +17,7 @@ public class CategoryController : PublicController
     public IActionResult Index()
     {
         return Ok("Hello from CategoryController");
-    }   
+    }
 
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetCategories()
@@ -36,17 +36,8 @@ public class CategoryController : PublicController
     [HttpPost("Create")]
     public async Task<IActionResult> CreateCategory(CreateCategoryCommand command)
     {
-        try
-        {
-            var result = await _mediator.Send(command);
+        var result = await _mediator.Send(command);
         return Ok(result);
-        }
-        catch (System.Exception ex)
-        {
-            var debug = ex.Message;
-            throw;
-        }
-        
     }
 
     [HttpPut("Update")]
